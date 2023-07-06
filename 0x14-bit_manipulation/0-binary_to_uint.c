@@ -1,5 +1,9 @@
 #include "main.h"
 #include <stdio.h>
+/**
+ * print_binary - print binary representation of a number
+ * @n: decimal number to print as binary
+ */
 
 unsigned int binary_to_uint(const char *b) {
     unsigned int total = 0;
