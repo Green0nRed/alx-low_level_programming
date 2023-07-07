@@ -1,8 +1,11 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
- * print_binary - print binary representation of a number
- * @n: decimal number to print as binary
+ *               ------  in this code ------
+ * binary_to_uint - it convert a binary number to an unsigned int
+ * @b: char string
+ * Return: converted decimal number or 0 if there is an unconvertable char
  */
 
 unsigned int binary_to_uint(const char *b) {
