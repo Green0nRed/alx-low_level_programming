@@ -1,16 +1,13 @@
 #include "main.h"
 #include <stdio.h>
-
-
-
-
 /**
- *@b: char string
- **/
-
-
-
-
+ * binary_to_uint - Converts a binary number represented as a string to an unsigned integer.
+ *
+ * @b: The binary string to convert. It should consist of '0' and '1' characters only.
+ *
+ * Return: The converted decimal number as an unsigned int. If the input string is NULL or
+ *         contains any character other than '0' and '1', the function returns 0.
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int total, power;
