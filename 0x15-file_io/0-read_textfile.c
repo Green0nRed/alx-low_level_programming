@@ -1,20 +1,39 @@
 #include "main.h"
-#include "stdlib.h"
-/** xX||read_textfile:Reads a Text File And Prints It To POSIX Stdout.||Xx     
- xX||@filename:A Pointer To The Name Of The File.||Xx
- xX||@letters:The Number Of Letters The Function Should Read And Print.||Xx                   
- xX||Return:If The Function Fails Or Filename Is (NULL) - 0. ||Xx
- xX||O/w:The Actual Number Of Bytes The Function Can Read And Print. ||Xx */
+#include <stdlib.h>
+
+/**
+ * read_textfile - Reads a text file and prints it to POSIX stdout.
+ * @filename: A pointer to the name of the file.
+ * @letters: The number of letters the
+ *           function should read and print.
+ *
+ * Return: If the function fails or filename is NULL - 0.
+ *         O/w - the actual number of bytes the function can read and print.
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-ssize_t o, r, w;char *Buff; if (filename == NULL)
-return (0);
-Buff = malloc(sizeof(char) * letters); if (Buff == NULL)
-return (0);
-o = open(filename, O_RDONLY); r = read(o, Buff, letters); w = write(STDOUT_FILENO, Buff, r);
-if (o == -1 || r == -1 || w == -1 || w != r)
-{free(Buff);
-return (0);}
-free(Buff); close(o);
-return (w);
+	ssize_t o, r, w;
+	char *buffer;
+
+	if (filename == NULL)
+		return (0);
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return (0);
+
+	o = open(filename, O_RDONLY);
+	r = read(o, buffer, letters);
+	w = write(STDOUT_FILENO, buffer, r);
+
+	if (o == -1 || r == -1 || w == -1 || w != r)
+	{
+		free(buffer);
+		return (0);
+	}
+
+	free(buffer);
+	close(o);
+
+	return (w);
 }
